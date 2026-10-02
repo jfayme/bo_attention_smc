@@ -41,6 +41,14 @@ MACE, LogEI.
 
 **core**: the model
 
+- `core/conformer.py` finds a molecule's conformers: RDKit embedding,
+  force-field optimisation, clustering of the survivors, then relaxation
+  with the MACE-MH1 potential. An ensemble is saved and read back, so the
+  search, by far the slowest step, runs once per molecule.
+- `core/featuriser.py` turns molecules into what a GP is given: Morgan
+  fingerprints, T5 embeddings, and MACE or AIMNet2 descriptors of each atom,
+  collapsed over atoms and conformers (kept, under attention, for the head
+  to pool).
 - `core/cells.py` reads a dataset, describes its molecules through
   `featuriser.py` (and `conformer.py` for MLIP atoms), and keeps the
   columns that matter: a *cell*. `molecules()` numbers each reaction's
@@ -151,9 +159,9 @@ metric `log_score_null_total` is `log_score_total`.
 
 ## What it needs beside it
 
-- `conformer.py` and `featuriser.py` at the root describe the molecules.
-  They read `settings.py`, `settings.toml` and `logging_config.py`, which
-  this package does not use itself.
+- `settings.py`, `settings.toml` and `logging_config.py` at the root, which
+  `core/conformer.py` and `core/featuriser.py` read; the rest of this
+  package does not use them.
 - `data/` holds the datasets and `conformers/` the conformer searches.
 - `cells/` holds the study's cells, on which every recorded campaign ran,
   and `cells/full/` the MACE attention cells kept on every channel (for

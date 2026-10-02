@@ -13,7 +13,11 @@ import numpy as np
 from rdkit import Chem, RDLogger
 from rdkit.Chem import AllChem
 
-from conformer import EV_TO_KCAL, ConformerEnsemble, ConformerGenerator
+from bo_attention_smc.core.conformer import (
+    EV_TO_KCAL,
+    ConformerEnsemble,
+    ConformerGenerator,
+)
 
 RDLogger.DisableLog("rdApp.*")
 
@@ -198,7 +202,9 @@ class TestSymmetryGuard(unittest.TestCase):
     def test_high_symmetry_molecule_is_stripped(self) -> None:
         """Four interchangeable CF3 groups push it past the threshold."""
         heavy = embed_heavy(SYMMETRIC)
-        with self.assertLogs("conformer", level="WARNING") as captured:
+        with self.assertLogs(
+            "bo_attention_smc.core.conformer", level="WARNING"
+        ) as captured:
             reference = self.generator._rmsd_reference(heavy, SYMMETRIC)
         self.assertLess(reference.GetNumAtoms(), heavy.GetNumAtoms())
         self.assertEqual(

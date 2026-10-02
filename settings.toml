@@ -1,7 +1,8 @@
-# Settings of the root modules conformer.py and featuriser.py (and
-# logging_config.py), read through settings.py. bo_attention_smc reads none
-# of them directly: the cells it builds use the featurisers' defaults below.
-# A git-ignored .env.toml in the working directory replaces this file.
+# Settings of bo_attention_smc/core/conformer.py and featuriser.py (and of
+# logging_config.py), read through settings.py. The rest of bo_attention_smc
+# reads none of them directly: the cells it builds use the featurisers'
+# defaults below. A git-ignored .env.toml in the working directory replaces
+# this file.
 
 # ---------------------------------------------------------------------------
 # Logging

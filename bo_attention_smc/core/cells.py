@@ -49,8 +49,11 @@ import numpy as np
 import pandas as pd
 import torch
 
-from conformer import ConformerEnsemble, ConformerGenerator
-from featuriser import (
+from bo_attention_smc.core.conformer import (
+    ConformerEnsemble,
+    ConformerGenerator,
+)
+from bo_attention_smc.core.featuriser import (
     FEATURIZER_SETTINGS,
     MLIPFeaturizer,
     MorganFeaturizer,

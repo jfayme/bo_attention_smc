@@ -59,12 +59,12 @@ from bo_attention_smc.core.cells import (
     read_reactions,
     reagents,
 )
+from bo_attention_smc.core.conformer import ConformerEnsemble
+from bo_attention_smc.core.featuriser import T5Featurizer
 from bo_attention_smc.core.gp import pool_bounds
 from bo_attention_smc.core.posterior import Bank, unpack
 from bo_attention_smc.evaluation.predict import DOMINANT, recorded, refit
 from bo_attention_smc.runs.run import cell_path
-from conformer import ConformerEnsemble
-from featuriser import T5Featurizer
 
 F64 = torch.float64
 

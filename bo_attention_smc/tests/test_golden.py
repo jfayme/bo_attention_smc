@@ -52,9 +52,9 @@ from bo_attention_smc.core.cells import (
     load_cell,
     read_reactions,
 )
+from bo_attention_smc.core.conformer import ConformerEnsemble
 from bo_attention_smc.core.gp import build_gp, fit, make_prior, mean_distance
 from bo_attention_smc.tests.reference import Posterior, SpanHead
-from conformer import ConformerEnsemble
 
 GOLDEN = Path(__file__).resolve().parent / "golden.json"
 CELLS = Path("cells")

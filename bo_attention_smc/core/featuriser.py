@@ -22,7 +22,7 @@ from rdkit.Chem import rdFingerprintGenerator
 from transformers import AutoTokenizer, T5Config, T5EncoderModel
 from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 
-from conformer import ConformerEnsemble
+from bo_attention_smc.core.conformer import ConformerEnsemble
 from logging_config import get_logger
 from settings import SETTINGS
 

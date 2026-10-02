@@ -1,7 +1,6 @@
 # The environment every recorded result in records/ was produced in (the
 # conda env `aimnet-bo`, 2026-10-02), restricted to what the code imports:
-# bo_attention_smc, conformer.py, featuriser.py and the tests. Their own
-# dependencies are left to pip.
+# bo_attention_smc and the tests. Their own dependencies are left to pip.
 #
 #     conda env create -f environment.yml
 #     conda activate bo-attention-smc

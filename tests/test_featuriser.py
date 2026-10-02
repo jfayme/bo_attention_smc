@@ -10,8 +10,8 @@ import unittest
 
 import numpy as np
 
-from conformer import ConformerEnsemble
-from featuriser import (
+from bo_attention_smc.core.conformer import ConformerEnsemble
+from bo_attention_smc.core.featuriser import (
     FIXED_AGGREGATIONS,
     POOL_STAT_NAMES,
     POOLINGS,

@@ -14,10 +14,9 @@ commands; this file covers setup, the data and where it all came from.
 
 | path | what it holds |
 |---|---|
-| `bo_attention_smc/` | the package: core (cells, GP, SMC, campaigns), evaluation, metrics and reports, command lines, tests |
-| `conformer.py`, `featuriser.py` | conformer search and the featurisers (Morgan, T5, MACE, AIMNet2) the cells are built with |
-| `settings.py`, `settings.toml`, `logging_config.py` | the settings and logging those two modules read |
-| `tests/` | tests of `conformer.py` and `featuriser.py` |
+| `bo_attention_smc/` | the package: core (conformer search, featurisers, cells, GP, SMC, campaigns), evaluation, metrics and reports, command lines, tests |
+| `settings.py`, `settings.toml`, `logging_config.py` | the settings and logging that `core/conformer.py` and `core/featuriser.py` read |
+| `tests/` | tests of `core/conformer.py` and `core/featuriser.py` |
 | `data/` | the three datasets |
 | `conformers/` | the conformer searches of every molecule, cached (64 molecules) |
 | `cells/` | the study's 38 cells (3 datasets × Morgan, two T5 models, MACE, AIMNet2 × mean, mean/std/max, attention; one cell, Shields under AIMNet2 with attention, cannot be built), and `cells.json`, their widths and prior centres as the study recorded them |
@@ -97,8 +96,9 @@ Copied on 2026-10-02 from `bo_attention_smc/` of
 - the `table` report creates its output folder (there it failed on a
   folder that did not exist yet).
 
-`conformer.py`, `featuriser.py`, `settings.py`, `logging_config.py` and
-their tests are copied unchanged.
+`settings.py` and `logging_config.py` are copied unchanged, and so are
+`conformer.py`, `featuriser.py` and their tests, except that the two
+modules now sit in `bo_attention_smc/core/` and are imported from there.
 
 ## Checked in this repository (2026-10-02)
 
