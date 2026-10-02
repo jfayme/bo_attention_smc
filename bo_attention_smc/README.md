@@ -33,9 +33,8 @@ records use:
   (0.4 √D + 4), `geom` (the pool's mean distance) or `default` (BoTorch's
   LogNormal).
 
-The recommended configuration, from the pre-registered tests
-(`docs/preregistrations/`): the term by MAP (`identity`), chen, T5 or
-MACE, LogEI.
+The recommended configuration, from the pre-registered tests: the term by
+MAP (`identity`), chen, T5 or MACE, LogEI.
 
 ## What each module does
 
@@ -170,5 +169,4 @@ metric `log_score_null_total` is `log_score_total`.
 - `records/` holds the study's recorded campaigns and evaluation outputs,
   which the tests, the table and the evaluation tools read.
 
-`docs/history/consolidation_2026-10-01.md` says how this package was made
-from `bo_hmc`, `bo_per_molecule` and `bo_smc`, and what was dropped.
+This package was made from `bo_hmc`, `bo_per_molecule` and `bo_smc`.

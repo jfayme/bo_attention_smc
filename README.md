@@ -22,7 +22,6 @@ commands; this file covers setup, the data and where it all came from.
 | `cells/` | the study's 38 cells (3 datasets × Morgan, two T5 models, MACE, AIMNet2 × mean, mean/std/max, attention; one cell, Shields under AIMNet2 with attention, cannot be built), and `cells.json`, their widths and prior centres as the study recorded them |
 | `cells/full/` | the three MACE attention cells kept on all 1,024 channels, for the representation diagnostic (Git LFS) |
 | `records/` | the study's recorded campaigns and evaluation outputs (below) |
-| `docs/` | the pre-registrations of the confirmatory tests, and the history of the code |
 | `runs/` | new outputs; ignored by git |
 
 ## Setup
@@ -81,8 +80,8 @@ and the T5 cell are skipped):
 
 Copied on 2026-10-02 from `bo_attention_smc/` of
 [jfayme/lengthscale_bo](https://github.com/jfayme/lengthscale_bo), commit
-`f79b6f0`, where it was consolidated from three earlier packages
-(`docs/history/consolidation_2026-10-01.md`). What differs from there:
+`f79b6f0`, where it was consolidated from three earlier packages. What
+differs from there:
 
 - the cells are read from `cells/` and the recorded campaigns from
   `records/` (there: the git-ignored `runs/bo_hmc/cells` and `runs/...`);
