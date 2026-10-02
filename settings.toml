@@ -1,0 +1,185 @@
+# Settings of the root modules conformer.py and featuriser.py (and
+# logging_config.py), read through settings.py. bo_attention_smc reads none
+# of them directly: the cells it builds use the featurisers' defaults below.
+# A git-ignored .env.toml in the working directory replaces this file.
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+# Consumed by logging_config.setup_logging, once, from an entry point that
+# calls it (bo_attention_smc's command lines log to the console instead).
+
+[logger]
+level = "INFO"                # lowest severity recorded
+path = "bo_attention_smc.log" # log file; empty disables the file handler
+console = true                # also write the records to stderr
+
+
+# ---------------------------------------------------------------------------
+# Conformer search
+# ---------------------------------------------------------------------------
+# Consumed by ConformerGenerator in conformer.py. The groups below follow the
+# order of the pipeline.
+
+[conformer]
+
+# 1. Embedding with ETKDGv3.
+confs_per_rot_bond = 50    # conformers embedded per rotatable bond
+max_conformers = 500       # cap on the embedded conformer count
+seed = 0xF00D              # ETKDG seed, for reproducible embeddings
+small_ring_torsions = true # use the small-ring torsion potentials
+prune_rms_thresh = 0.5     # drop near-duplicate embeddings, Angstrom
+n_threads = 0              # RDKit threads; 0 uses every CPU core
+
+# 2. Force-field optimisation (MMFF94, or UFF where MMFF lacks parameters).
+max_iters = 2000 # force-field steps per conformer
+
+# 3. Pre-filtering and clustering: what the MLIP is asked to relax.
+mmff_window_kcal = 10.0   # window above the minimum, kcal/mol
+rmsd_cluster_thresh = 0.3 # Butina cut-off, heavy-atom RMSD, Angstrom
+max_automorphisms = 5000  # above this, cluster on the terminal-stripped core
+pre_filter_conf_max = 20  # cap on representatives sent to the MLIP
+
+# 4. MACE calculator, built lazily on first relaxation.
+model_paths = ""          # MACE weights; empty reuses cached mh-1
+device = "cuda"           # torch device the potential runs on
+head = "omol"             # MACE output head
+default_dtype = "float64" # precision the potential runs at
+enable_cueq = false       # cuEquivariance acceleration
+
+# 5. MLIP relaxation.
+fmax = 0.05     # BFGS force convergence, eV/Angstrom
+opt_steps = 500 # BFGS step budget per conformer
+log_every = 10  # log progress every N conformers
+
+# 6. Duplicate removal, and the ensemble handed back to the caller.
+# Every relaxation that was paid for is kept: at or above pre_filter_conf_max
+# max_final never truncates, and the featuriser decides what to do with them.
+dedup_energy_kcal = 0.1 # same-minimum energy gate, kcal/mol
+dedup_rmsd = 0.125      # same-minimum RMSD gate, Angstrom
+max_final = 20          # lowest-energy minima kept
+
+
+# ---------------------------------------------------------------------------
+# Featurisation
+# ---------------------------------------------------------------------------
+# Consumed by MLIPFeaturizer in featuriser.py, which reads per-atom descriptors
+# from one potential and collapses the two axes an MLIP produces down to the
+# single vector a GP is given.
+#
+# `mlip` picks the potential. Both live in the one class and differ only in how
+# an atom is described, so the two collapses below are shared between them.
+#
+#   mace    the foundation model; spans the periodic table
+#   aimnet2 fourteen elements only -- potassium and caesium are not among
+#           them, so the Shields bases have no AIMNet2 descriptor at all
+#
+# The atom axis is collapsed first, by `aggregation`, since an MLIP describes
+# every atom separately and a GP takes one vector per molecule.
+#
+#   mean         the average atom; size-intensive, and the default because
+#                yields are intensive too, whatever a potential sums
+#   mean_std_max the average, the spread and the extreme atom per channel;
+#                the only fixed mode that can see a lone donor in a large
+#                ligand, at three times the width
+#   attention    the atoms are kept, and the model weights them: the
+#                attention head of bo_attention_smc (core/posterior.py),
+#                sampled by SMC. Mean pooling of the same atoms is its null
+#                (cells.null_features), with the same width.
+#
+# The first two are generic functions of the descriptor matrix. A rule keyed
+# to element identity would fit these datasets and not transfer, which is the
+# opposite of what an axis in this study is for.
+#
+# The conformer axis is collapsed second, by `pooling`.
+#
+#   lowest         the lowest-energy conformer only; reproduces the original
+#                  single-conformer behaviour, and is discontinuous in
+#                  chemical space when near-identical molecules swap basins
+#   boltzmann      populations from the MLIP energies; continuous, but the
+#                  ensemble is a non-exhaustive sample, not a converged one
+#   ensemble_stats min, max, mean and std per descriptor; encodes
+#                  conformational spread but multiplies the width by four
+#
+# Atoms before conformers holds in both arms, so every pooling works with
+# every aggregation. Under `attention` both axes survive the featuriser and
+# the same two collapses run inside the model, in that same order.
+
+[featurizer]
+mlip = "mace"          # one of: mace, aimnet2
+t5 = "augm"            # one of: vanilla, augm
+aggregation = "mean"   # one of: mean, mean_std_max, attention
+pooling = "lowest"     # one of: lowest, boltzmann, ensemble_stats
+temperature_k = 298.15 # Boltzmann temperature, Kelvin
+
+
+# ---------------------------------------------------------------------------
+# Morgan fingerprints
+# ---------------------------------------------------------------------------
+# Consumed by MorganFeaturizer in featuriser.py. Topological, so it has no
+# conformer axis and no atom axis to collapse.
+
+[morgan]
+radius = 2    # bond radius of the environments; 2 gives ECFP4
+n_bits = 2048 # length of the folded bit vector
+
+
+# ---------------------------------------------------------------------------
+# MACE descriptors
+# ---------------------------------------------------------------------------
+# Consumed by MLIPFeaturizer in featuriser.py when `mlip = "mace"`.
+# Geometry-derived, so every conformer is embedded and the rows are collapsed
+# by the aggregation above. The model settings repeat the ones in [conformer]
+# rather than sharing them: which potential describes a structure is a
+# descriptor choice, separate from which potential relaxed it.
+
+[mace]
+model_paths = ""          # MACE weights; empty reuses cached mh-1
+mace_model_name = "mh-1"  # checkpoint the calculator resolves and caches
+device = "cuda"           # torch device the potential runs on
+head = "omol"             # MACE output head
+default_dtype = "float32" # precision the potential runs at
+enable_cueq = false       # cuEquivariance acceleration
+mace_layers = "all"       # one of: last, all
+log_every = 10            # log progress every N molecules
+
+
+# ---------------------------------------------------------------------------
+# AIMNet2 descriptors
+# ---------------------------------------------------------------------------
+# Consumed by MLIPFeaturizer in featuriser.py when `mlip = "aimnet2"`.
+# Geometry-derived like the MACE descriptors and read from the same relaxed
+# ensembles, but from a potential trained on fourteen elements: potassium and
+# caesium are not among them, so the Shields bases have no AIMNet2
+# descriptor at all.
+#
+#   last the 256-wide vector the energy and charge heads read
+#   all  every MLP pass concatenated, 772 wide for the released model
+
+[aimnet2]
+aimnet_model_name = "aimnet2" # checkpoint the calculator resolves and caches
+device = "cuda"               # torch device the potential runs on
+aimnet_layers = "all"         # one of: last, all
+log_every = 10                # log progress every N molecules
+
+
+# ---------------------------------------------------------------------------
+# T5 text embeddings
+# ---------------------------------------------------------------------------
+# Consumed by T5Featurizer in featuriser.py, from the [t5_<variant>] table
+# that `t5` in [featurizer] selects. The SMILES is read as text, so like the
+# Morgan fingerprints there is no conformer axis; the tokens stand in for
+# atoms and are collapsed by the same `aggregation`. Weights come from the
+# HuggingFace cache, wherever HF_HOME points, and are downloaded on first use.
+
+[t5_vanilla]
+model_name = "google-t5/t5-base"
+device = "cuda"
+batch_size = 16
+max_length = 512                 # tokens kept, a longer SMILES is truncated
+
+[t5_augm]
+model_name = "GT4SD/multitask-text-and-chemistry-t5-base-augm"
+device = "cuda"
+batch_size = 16
+max_length = 512

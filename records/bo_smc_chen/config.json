@@ -1,0 +1,15 @@
+{
+ "n_init": 5,
+ "n_bo": 50,
+ "particles": 256,
+ "mcmc_steps": 5,
+ "leapfrog_steps": 10,
+ "sampler": {
+  "particles": 256,
+  "mcmc_steps": 5,
+  "leapfrog_steps": 10,
+  "target_ess": 0.5,
+  "max_tempering": 100,
+  "step_size": 0.3
+ }
+}

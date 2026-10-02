@@ -1,0 +1,321 @@
+{
+ "bh_full/morgan": {
+  "status": "ok",
+  "d": 76,
+  "D_bar": 4.359408589153974,
+  "ell_chen": 7.4871191548325395,
+  "ell_geom": 3.567991459031087,
+  "blocks": "Ligand: morgan 6, Additive: morgan 51, Base: morgan 3, Aryl halide: morgan 16"
+ },
+ "bh_full/t5_vanilla/mean": {
+  "status": "ok",
+  "d": 234,
+  "D_bar": 5.83053191548813,
+  "ell_chen": 10.118823416311344,
+  "ell_geom": 4.772043650101421,
+  "blocks": "Ligand: t5_vanilla 6, Additive: t5_vanilla 177, Base: t5_vanilla 3, Aryl halide: t5_vanilla 48"
+ },
+ "bh_full/t5_vanilla/mean_std_max": {
+  "status": "ok",
+  "d": 640,
+  "D_bar": 9.481961668259682,
+  "ell_chen": 14.119288512538816,
+  "ell_geom": 7.760584390135443,
+  "blocks": "Ligand: t5_vanilla 6, Additive: t5_vanilla 519, Base: t5_vanilla 3, Aryl halide: t5_vanilla 112"
+ },
+ "bh_full/mace/mean": {
+  "status": "ok",
+  "d": 57,
+  "D_bar": 3.2168043589655495,
+  "ell_chen": 7.0199337741083,
+  "ell_geom": 2.6328182466581973,
+  "blocks": "Ligand: mace 7, Additive: mace 30, Base: mace 3, Aryl halide: mace 17"
+ },
+ "bh_full/mace/mean_std_max": {
+  "status": "ok",
+  "d": 248,
+  "D_bar": 6.050267752269247,
+  "ell_chen": 10.299206299209448,
+  "ell_geom": 4.95188813424284,
+  "blocks": "Ligand: mace 7, Additive: mace 204, Base: mace 3, Aryl halide: mace 34"
+ },
+ "bh_full/aimnet2/mean": {
+  "status": "ok",
+  "d": 126,
+  "D_bar": 4.328602612987507,
+  "ell_chen": 8.48998886412873,
+  "ell_geom": 3.542778071113622,
+  "blocks": "Ligand: aimnet2 7, Additive: aimnet2 95, Base: aimnet2 3, Aryl halide: aimnet2 21"
+ },
+ "bh_full/aimnet2/mean_std_max": {
+  "status": "ok",
+  "d": 334,
+  "D_bar": 7.072995818988732,
+  "ell_chen": 11.310266752998828,
+  "ell_geom": 5.788947779453723,
+  "blocks": "Ligand: aimnet2 7, Additive: aimnet2 266, Base: aimnet2 3, Aryl halide: aimnet2 58"
+ },
+ "bh_1/morgan": {
+  "status": "ok",
+  "d": 63,
+  "D_bar": 3.9640760837234814,
+  "ell_chen": 7.174901573277509,
+  "ell_geom": 3.244428532086655,
+  "blocks": "ligand: morgan 6, additive: morgan 51, base: morgan 3, aryl halide: morgan 3"
+ },
+ "bh_1/t5_vanilla/mean": {
+  "status": "ok",
+  "d": 189,
+  "D_bar": 5.22587380538781,
+  "ell_chen": 9.499090833947008,
+  "ell_geom": 4.277156573482959,
+  "blocks": "ligand: t5_vanilla 6, additive: t5_vanilla 177, base: t5_vanilla 3, aryl halide: t5_vanilla 3"
+ },
+ "bh_1/t5_vanilla/mean_std_max": {
+  "status": "ok",
+  "d": 531,
+  "D_bar": 8.451625525139994,
+  "ell_chen": 13.217374897442332,
+  "ell_geom": 6.917297856331663,
+  "blocks": "ligand: t5_vanilla 6, additive: t5_vanilla 519, base: t5_vanilla 3, aryl halide: t5_vanilla 3"
+ },
+ "bh_1/mace/mean": {
+  "status": "ok",
+  "d": 43,
+  "D_bar": 2.881482627451113,
+  "ell_chen": 6.6229754097208,
+  "ell_geom": 2.3583715987693807,
+  "blocks": "ligand: mace 7, additive: mace 30, base: mace 3, aryl halide: mace 3"
+ },
+ "bh_1/mace/mean_std_max": {
+  "status": "ok",
+  "d": 217,
+  "D_bar": 5.481777980437011,
+  "ell_chen": 9.892367945062494,
+  "ell_geom": 4.4866033120102005,
+  "blocks": "ligand: mace 7, additive: mace 204, base: mace 3, aryl halide: mace 3"
+ },
+ "bh_1/aimnet2/mean": {
+  "status": "ok",
+  "d": 108,
+  "D_bar": 3.992035610949918,
+  "ell_chen": 8.156921938165306,
+  "ell_geom": 3.2673122219960318,
+  "blocks": "ligand: aimnet2 7, additive: aimnet2 95, base: aimnet2 3, aryl halide: aimnet2 3"
+ },
+ "bh_1/aimnet2/mean_std_max": {
+  "status": "ok",
+  "d": 279,
+  "D_bar": 6.297785312237996,
+  "ell_chen": 10.681317235396026,
+  "ell_geom": 5.154470783211769,
+  "blocks": "ligand: aimnet2 7, additive: aimnet2 266, base: aimnet2 3, aryl halide: aimnet2 3"
+ },
+ "shields/morgan": {
+  "status": "ok",
+  "d": 35,
+  "D_bar": 3.2427118907242685,
+  "ell_chen": 6.366431913239847,
+  "ell_geom": 2.6540224651087616,
+  "blocks": "Solvent_SMILES: morgan 6, Base_SMILES: morgan 2, Ligand_SMILES: morgan 25, Temp_C: numeric 1, Concentration: numeric 1"
+ },
+ "shields/t5_vanilla/mean": {
+  "status": "ok",
+  "d": 100,
+  "D_bar": 4.317635147253324,
+  "ell_chen": 8.0,
+  "ell_geom": 3.5338016645055927,
+  "blocks": "Solvent_SMILES: t5_vanilla 7, Base_SMILES: t5_vanilla 6, Ligand_SMILES: t5_vanilla 85, Temp_C: numeric 1, Concentration: numeric 1"
+ },
+ "shields/t5_vanilla/mean_std_max": {
+  "status": "ok",
+  "d": 181,
+  "D_bar": 5.683515754421558,
+  "ell_chen": 9.381449618829485,
+  "ell_geom": 4.651717143352286,
+  "blocks": "Solvent_SMILES: t5_vanilla 7, Base_SMILES: t5_vanilla 7, Ligand_SMILES: t5_vanilla 165, Temp_C: numeric 1, Concentration: numeric 1"
+ },
+ "shields/mace/mean": {
+  "status": "ok",
+  "d": 38,
+  "D_bar": 2.8307406934511397,
+  "ell_chen": 6.465765601187591,
+  "ell_geom": 2.3168414729681284,
+  "blocks": "Solvent_SMILES: mace 7, Base_SMILES: mace 6, Ligand_SMILES: mace 23, Temp_C: numeric 1, Concentration: numeric 1"
+ },
+ "shields/mace/mean_std_max": {
+  "status": "ok",
+  "d": 86,
+  "D_bar": 4.052145800860784,
+  "ell_chen": 7.709447398198282,
+  "ell_geom": 3.316509868836547,
+  "blocks": "Solvent_SMILES: mace 7, Base_SMILES: mace 7, Ligand_SMILES: mace 70, Temp_C: numeric 1, Concentration: numeric 1"
+ },
+ "shields/aimnet2/mean": {
+  "status": "ok",
+  "d": 50,
+  "D_bar": 3.1146022366227983,
+  "ell_chen": 6.82842712474619,
+  "ell_geom": 2.549170134269504,
+  "blocks": "Solvent_SMILES: aimnet2 6, Base_SMILES: mace 6, Ligand_SMILES: aimnet2 36, Temp_C: numeric 1, Concentration: numeric 1"
+ },
+ "shields/aimnet2/mean_std_max": {
+  "status": "ok",
+  "d": 112,
+  "D_bar": 4.541141931307878,
+  "ell_chen": 8.233202097703344,
+  "ell_geom": 3.7167325094202504,
+  "blocks": "Solvent_SMILES: aimnet2 7, Base_SMILES: mace 7, Ligand_SMILES: aimnet2 96, Temp_C: numeric 1, Concentration: numeric 1"
+ },
+ "bh_full/t5_vanilla/attention": {
+  "status": "ok",
+  "d": 234,
+  "D_bar": 5.830531904719089,
+  "ell_chen": 10.118823416311344,
+  "ell_geom": 4.772043641287415,
+  "blocks": "Ligand: t5_vanilla 6, Additive: t5_vanilla 177, Base: t5_vanilla 3, Aryl halide: t5_vanilla 48",
+  "head": "216 channels, 2 hidden, 436 parameters for 44 molecules"
+ },
+ "bh_full/t5_augm/mean": {
+  "status": "ok",
+  "d": 207,
+  "D_bar": 5.5721083332319195,
+  "ell_chen": 9.754997827975263,
+  "ell_geom": 4.560534883385585,
+  "blocks": "Ligand: t5_augm 6, Additive: t5_augm 154, Base: t5_augm 3, Aryl halide: t5_augm 44"
+ },
+ "bh_full/t5_augm/mean_std_max": {
+  "status": "ok",
+  "d": 581,
+  "D_bar": 9.078417673755506,
+  "ell_chen": 13.641576634555161,
+  "ell_geom": 7.4303007068586675,
+  "blocks": "Ligand: t5_augm 7, Additive: t5_augm 463, Base: t5_augm 3, Aryl halide: t5_augm 108"
+ },
+ "bh_full/t5_augm/attention": {
+  "status": "ok",
+  "d": 207,
+  "D_bar": 5.572108329475372,
+  "ell_chen": 9.754997827975263,
+  "ell_geom": 4.56053488031101,
+  "blocks": "Ligand: t5_augm 6, Additive: t5_augm 154, Base: t5_augm 3, Aryl halide: t5_augm 44",
+  "head": "193 channels, 2 hidden, 390 parameters for 44 molecules"
+ },
+ "bh_full/mace/attention": {
+  "status": "ok",
+  "d": 57,
+  "D_bar": 3.216804327618149,
+  "ell_chen": 7.0199337741083,
+  "ell_geom": 2.6328182210016764,
+  "blocks": "Ligand: mace 7, Additive: mace 30, Base: mace 3, Aryl halide: mace 17",
+  "head": "50 channels, 4 hidden, 208 parameters for 44 molecules"
+ },
+ "bh_full/aimnet2/attention": {
+  "status": "ok",
+  "d": 126,
+  "D_bar": 4.328602815452727,
+  "ell_chen": 8.48998886412873,
+  "ell_geom": 3.5427782368228367,
+  "blocks": "Ligand: aimnet2 7, Additive: aimnet2 95, Base: aimnet2 3, Aryl halide: aimnet2 21",
+  "head": "118 channels, 3 hidden, 360 parameters for 44 molecules"
+ },
+ "bh_1/t5_vanilla/attention": {
+  "status": "ok",
+  "d": 189,
+  "D_bar": 5.225873779586223,
+  "ell_chen": 9.499090833947008,
+  "ell_geom": 4.277156552365452,
+  "blocks": "ligand: t5_vanilla 6, additive: t5_vanilla 177, base: t5_vanilla 3, aryl halide: t5_vanilla 3",
+  "head": "186 channels, 1 hidden, 188 parameters for 32 molecules"
+ },
+ "bh_1/t5_augm/mean": {
+  "status": "ok",
+  "d": 166,
+  "D_bar": 4.921534756644812,
+  "ell_chen": 9.15363949069005,
+  "ell_geom": 4.028067940390322,
+  "blocks": "ligand: t5_augm 6, additive: t5_augm 154, base: t5_augm 3, aryl halide: t5_augm 3"
+ },
+ "bh_1/t5_augm/mean_std_max": {
+  "status": "ok",
+  "d": 476,
+  "D_bar": 8.039597428442313,
+  "ell_chen": 12.726969691708572,
+  "ell_geom": 6.58007029441977,
+  "blocks": "ligand: t5_augm 7, additive: t5_augm 463, base: t5_augm 3, aryl halide: t5_augm 3"
+ },
+ "bh_1/t5_augm/attention": {
+  "status": "ok",
+  "d": 166,
+  "D_bar": 4.921534758219671,
+  "ell_chen": 9.15363949069005,
+  "ell_geom": 4.028067941679279,
+  "blocks": "ligand: t5_augm 6, additive: t5_augm 154, base: t5_augm 3, aryl halide: t5_augm 3",
+  "head": "162 channels, 1 hidden, 164 parameters for 32 molecules"
+ },
+ "bh_1/mace/attention": {
+  "status": "ok",
+  "d": 43,
+  "D_bar": 2.8814828426480616,
+  "ell_chen": 6.6229754097208,
+  "ell_geom": 2.358371774898977,
+  "blocks": "ligand: mace 7, additive: mace 30, base: mace 3, aryl halide: mace 3",
+  "head": "37 channels, 4 hidden, 156 parameters for 32 molecules"
+ },
+ "bh_1/aimnet2/attention": {
+  "status": "ok",
+  "d": 108,
+  "D_bar": 3.992035768933178,
+  "ell_chen": 8.156921938165306,
+  "ell_geom": 3.267312351298645,
+  "blocks": "ligand: aimnet2 7, additive: aimnet2 95, base: aimnet2 3, aryl halide: aimnet2 3",
+  "head": "102 channels, 3 hidden, 312 parameters for 32 molecules"
+ },
+ "shields/t5_vanilla/attention": {
+  "status": "ok",
+  "d": 100,
+  "D_bar": 4.317635078052539,
+  "ell_chen": 8.0,
+  "ell_geom": 3.5338016078676784,
+  "blocks": "Solvent_SMILES: t5_vanilla 7, Base_SMILES: t5_vanilla 6, Ligand_SMILES: t5_vanilla 85, Temp_C: numeric 1, Concentration: numeric 1",
+  "head": "97 channels, 2 hidden, 198 parameters for 20 molecules"
+ },
+ "shields/t5_augm/mean": {
+  "status": "ok",
+  "d": 93,
+  "D_bar": 4.08972095997712,
+  "ell_chen": 7.857460304397183,
+  "ell_geom": 3.347263546556129,
+  "blocks": "Solvent_SMILES: t5_augm 6, Base_SMILES: t5_augm 6, Ligand_SMILES: t5_augm 79, Temp_C: numeric 1, Concentration: numeric 1"
+ },
+ "shields/t5_augm/mean_std_max": {
+  "status": "ok",
+  "d": 177,
+  "D_bar": 5.6341402884503164,
+  "ell_chen": 9.32165387826003,
+  "ell_geom": 4.611305413809574,
+  "blocks": "Solvent_SMILES: t5_augm 6, Base_SMILES: t5_augm 7, Ligand_SMILES: t5_augm 162, Temp_C: numeric 1, Concentration: numeric 1"
+ },
+ "shields/t5_augm/attention": {
+  "status": "ok",
+  "d": 93,
+  "D_bar": 4.089720983861505,
+  "ell_chen": 7.857460304397183,
+  "ell_geom": 3.3472635661044876,
+  "blocks": "Solvent_SMILES: t5_augm 6, Base_SMILES: t5_augm 6, Ligand_SMILES: t5_augm 79, Temp_C: numeric 1, Concentration: numeric 1",
+  "head": "89 channels, 2 hidden, 182 parameters for 20 molecules"
+ },
+ "shields/mace/attention": {
+  "status": "ok",
+  "d": 38,
+  "D_bar": 2.8307406982874364,
+  "ell_chen": 6.465765601187591,
+  "ell_geom": 2.3168414769264327,
+  "blocks": "Solvent_SMILES: mace 7, Base_SMILES: mace 6, Ligand_SMILES: mace 23, Temp_C: numeric 1, Concentration: numeric 1",
+  "head": "34 channels, 4 hidden, 144 parameters for 20 molecules"
+ },
+ "shields/aimnet2/attention": {
+  "status": "skipped",
+  "reason": "ValueError: shields: one head is shared across the components, so they must share a featuriser, got ['aimnet2', 'mace']"
+ }
+}

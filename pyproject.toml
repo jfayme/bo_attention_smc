@@ -1,0 +1,40 @@
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+[tool.interrogate]
+verbose                    = 2
+ignore-setters             = true
+ignore-property-decorators = true
+ignore-magic               = true
+# numpydoc documents constructor arguments in the class docstring, which is
+# also why ruff's numpy convention disables D107.
+ignore-init-method         = true
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 79
+target-version = "py311"
+lint.select = [
+    "E",   # pycodestyle
+    "F",   # Pyflakes
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "TD",  # flake8-todos
+    "PTH", # flake8-use-pathlib
+    "ANN", # flake8-annotations
+    "I",   # isort
+    "N",   # PEP8 naming
+    "D",   # pydocstyle
+]
+lint.ignore = [
+    "ANN101",
+    "D105",
+]
+
+    [tool.ruff.lint.pydocstyle]
+    convention = "numpy"

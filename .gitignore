@@ -1,0 +1,10 @@
+__pycache__/
+# new outputs: campaigns, queues, evaluations, rebuilt cells. The study's
+# recorded campaigns are in records/, its cells in cells/
+runs/
+# ...but the package's runs/ holds code
+!bo_attention_smc/runs/
+# local settings override (machine-specific: device, weights, log paths)
+.env.toml
+# log files
+*.log

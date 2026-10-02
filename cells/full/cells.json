@@ -1,0 +1,41 @@
+{
+ "shields/mace/attention": {
+  "status": "ok",
+  "d": 3074,
+  "D_bar": 27.869501400524314,
+  "ell_chen": 26.177466041006582,
+  "ell_geom": 22.810007580368495,
+  "blocks": "Solvent_SMILES: mace 1024, Base_SMILES: mace 1024, Ligand_SMILES: mace 1024, Temp_C: numeric 1, Concentration: numeric 1",
+  "atoms": "1024 channels, 20 molecules",
+  "design": {
+   "reduction": "none",
+   "pooling": "lowest"
+  }
+ },
+ "bh_1/mace/attention": {
+  "status": "ok",
+  "d": 4096,
+  "D_bar": 34.5179846229703,
+  "ell_chen": 29.6,
+  "ell_geom": 28.25150976307682,
+  "blocks": "ligand: mace 1024, additive: mace 1024, base: mace 1024, aryl halide: mace 1024",
+  "atoms": "1024 channels, 32 molecules",
+  "design": {
+   "reduction": "none",
+   "pooling": "lowest"
+  }
+ },
+ "bh_full/mace/attention": {
+  "status": "ok",
+  "d": 4096,
+  "D_bar": 32.11740430001429,
+  "ell_chen": 29.6,
+  "ell_geom": 26.286736350844915,
+  "blocks": "Ligand: mace 1024, Additive: mace 1024, Base: mace 1024, Aryl halide: mace 1024",
+  "atoms": "1024 channels, 44 molecules",
+  "design": {
+   "reduction": "none",
+   "pooling": "lowest"
+  }
+ }
+}

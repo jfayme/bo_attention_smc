@@ -1,0 +1,5 @@
+cells/full/*.npz filter=lfs diff=lfs merge=lfs -text
+
+# the pre-registrations are verified by their SHA-256 (docs/preregistrations/
+# README.md): keep their bytes as they are, on every system
+docs/preregistrations/** -text

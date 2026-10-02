@@ -1,0 +1,180 @@
+{
+ "n_init": 5,
+ "n_bo": 50,
+ "seed_base": 1337,
+ "cv": 0.3,
+ "prior_mode": "match_concentration",
+ "terms": {
+  "identity": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "identity_loose": {
+   "concentration": 2.0,
+   "rate": 1.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "identity_scaled": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": [
+    2.0,
+    2.0
+   ],
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "identity_head": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "ceiling_identity": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "identity_pairs": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": [
+    2.0,
+    8.0
+   ],
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "identity_additive": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": [
+    2.0,
+    4.0
+   ],
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "identity_ucb": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "ucb",
+   "beta": 2.0
+  },
+  "identity_cv05": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.5,
+   "ell_scale": 1.0,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "identity_long15": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.5,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "identity_long2": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 2.0,
+   "acquisition": "logei",
+   "beta": 2.0
+  },
+  "identity_ucb1": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "ucb",
+   "beta": 1.0
+  },
+  "identity_greedy": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "ucb",
+   "beta": 0.0
+  },
+  "identity_ucb3": {
+   "concentration": 2.0,
+   "rate": 4.0,
+   "amplitude": null,
+   "pairs": null,
+   "additive": null,
+   "cv": 0.3,
+   "ell_scale": 1.0,
+   "acquisition": "ucb",
+   "beta": 3.0
+  }
+ },
+ "schedule": {
+  "warmup": 500,
+  "draws": 128,
+  "max_tree_depth": 5
+ },
+ "ceiling_rows": 1000,
+ "head_starts": 3,
+ "head_iterations": 300
+}
